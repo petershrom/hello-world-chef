@@ -1,6 +1,7 @@
-# hello-world
+# hello-world-chef
 
 # Pre-requisites
+
 ChefDk
   https://downloads.getchef.com/chef-dk
 Vagrant
