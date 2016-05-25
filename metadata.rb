@@ -1,0 +1,11 @@
+name 'hello-world'
+maintainer 'Peter Shrom'
+maintainer_email 'petershrom@gmail.com'
+license 'all_rights'
+description 'Sets up Hello World Website'
+long_description 'Installs and configures a webserver to server a Hello World site'
+version '0.1.1'
+
+depends 'apt'
+depends 'firewall', '< 2.0'
+depends 'nginx', '~> 2.7'
