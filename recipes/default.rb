@@ -48,7 +48,7 @@ bash 'Generate Self-Signed Certs' do
   cat #{node['app_name']}.crt > #{node['app_name']}.pem
   EOH
   not_if do
-    File.exist?("/etc/ssl/#{node['app_name']}.pem") || keys.to_hash.key?('cert')
+    File.exist?("/etc/ssl/#{node['app_name']}.pem")
   end
 end
 
@@ -58,7 +58,6 @@ template "/etc/ssl/#{node['app_name']}.pem" do
   variables(
     cert: keys['cert']
   )
-  only_if { keys.to_hash.key?('cert') }
 end
 
 template "/etc/ssl/#{node['app_name']}.key" do
@@ -67,7 +66,6 @@ template "/etc/ssl/#{node['app_name']}.key" do
   variables(
     key: keys['key']
   )
-  only_if { keys.to_hash.key?('key') }
 end
 
 template "#{node['nginx']['dir']}/sites-available/default" do
