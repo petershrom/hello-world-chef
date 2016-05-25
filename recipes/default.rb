@@ -36,7 +36,7 @@ end
 
 
 # Generate and template SSLs
-
+# this feels kind of dirty and I'd like to replace it with the OpenSSL cookbook
 bash 'Generate Self-Signed Certs' do
   cwd '/etc/ssl'
   code <<-EOH
