@@ -36,7 +36,6 @@ end
 
 
 # Generate and template SSLs
-keys = {}
 
 bash 'Generate Self-Signed Certs' do
   cwd '/etc/ssl'
@@ -50,22 +49,6 @@ bash 'Generate Self-Signed Certs' do
   not_if do
     File.exist?("/etc/ssl/#{node['app_name']}.pem")
   end
-end
-
-template "/etc/ssl/#{node['app_name']}.pem" do
-  source 'certificate.pem.erb'
-  mode 0640
-  variables(
-    cert: keys['cert']
-  )
-end
-
-template "/etc/ssl/#{node['app_name']}.key" do
-  source 'certificate.key.erb'
-  mode 0640
-  variables(
-    key: keys['key']
-  )
 end
 
 template "#{node['nginx']['dir']}/sites-available/default" do
