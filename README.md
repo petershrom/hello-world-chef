@@ -16,6 +16,6 @@ Vagrant Plugins
   
   ```vagrant plugin install vagrant-vbguest```
   
-Virtualbox
-  https://www.virtualbox.org/wiki/Downloads
+Virtualbox - https://www.virtualbox.org/wiki/Downloads
+
 
